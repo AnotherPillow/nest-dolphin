@@ -12,7 +12,7 @@ Actions=uploadToNest;
 Name=Upload to nest.rip
 Icon=upload-media
 Comment=Upload selected files to nest.rip
-Exec=~/.local/bin/nest-dolphin %f
+Exec=${HOME}/.local/bin/nest-dolphin %f
 EOF
 
 # preserve newlines
@@ -113,3 +113,7 @@ if [ -e "${SERVICE_MENU_STORAGE_DIR}/nest-dolphin.desktop" ]; then
 fi
 
 copy_with_sudo "/tmp/nest-dolphin.desktop" "${SERVICE_MENU_STORAGE_DIR}/nest-dolphin.desktop"
+
+
+copy_with_sudo "$(dirname "$0")/program.sh" "${BIN_CONTAINING_DIR}/nest-dolphin"
+chmod +x "${BIN_CONTAINING_DIR}/nest-dolphin"
